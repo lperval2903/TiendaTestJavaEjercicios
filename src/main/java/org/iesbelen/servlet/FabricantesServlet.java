@@ -12,6 +12,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.iesbelen.dao.FabricanteDAO;
 import org.iesbelen.dao.FabricanteDAOImpl;
 import org.iesbelen.model.Fabricante;
+import org.iesbelen.model.FabricanteDTO;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "fabricantesServlet", value = "/tienda_informatica/fabricantes/*")
 public class FabricantesServlet extends HttpServlet {
@@ -40,8 +44,28 @@ public class FabricantesServlet extends HttpServlet {
 			//GET 
 			//	/fabricantes/
 			//	/fabricantes
-			
-			request.setAttribute("listaFabricantes", fabDAO.getAll());		
+
+			// 1. Obtenemos la lista normal de fabricantes
+			List<Fabricante> listaFabricantes = fabDAO.getAll();
+
+// 2. Transformamos a FabricanteDTO usando la API de Streams de Java 8
+			List<FabricanteDTO> listaFabricantesDTO = listaFabricantes.stream()
+					.map(fab -> {
+						FabricanteDTO dto = new FabricanteDTO();
+						dto.setCodigo(fab.getCodigo());
+						dto.setNombre(fab.getNombre());
+
+						// Obtenemos el conteo con el método del DAO y asignamos 0 si viene vacío
+						int count = fabDAO.getCountProductos(fab.getCodigo()).orElse(0);
+						dto.setCountProductos(count);
+
+						return dto;
+					})
+					.toList(); // Si tu entorno usa Java anterior a la versión 16, cambia .toList() por .collect(Collectors.toList())
+
+// 3. Enviamos la lista de DTOs al request
+			request.setAttribute("listaFabricantes", listaFabricantesDTO);
+			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
 			        		       
 		} else {
@@ -61,16 +85,32 @@ public class FabricantesServlet extends HttpServlet {
 				// GET
 				// /fabricantes/create									
 				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/crear-fabricante.jsp");
-        												
-			
+
+
 			} else if (pathParts.length == 2) {
 				FabricanteDAO fabDAO = new FabricanteDAOImpl();
 				// GET
 				// /fabricantes/{id}
 				try {
-					request.setAttribute("fabricante",fabDAO.find(Integer.parseInt(pathParts[1])));
+					int id = Integer.parseInt(pathParts[1]);
+					Optional<Fabricante> optFab = fabDAO.find(id);
+
+					if (optFab.isPresent()) {
+						Fabricante fab = optFab.get();
+
+						// Creamos el DTO individual para el detalle
+						FabricanteDTO dto = new FabricanteDTO();
+						dto.setCodigo(fab.getCodigo());
+						dto.setNombre(fab.getNombre());
+
+						int count = fabDAO.getCountProductos(fab.getCodigo() /* o getCodigo() */).orElse(0); // Usa getCodigo() segun tu bean
+						dto.setCountProductos(count);
+
+						request.setAttribute("fabricante", dto);
+					}
+
 					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/detalle-fabricante.jsp");
-					        								
+
 				} catch (NumberFormatException nfe) {
 					nfe.printStackTrace();
 					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");

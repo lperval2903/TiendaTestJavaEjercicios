@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="web_mvc_tienda_informatica:war" />
+      <artifact name="web-mvc-tiemda-informatica:war" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,13 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec12d1fc-09c4-4f89-956a-774a4d160b7a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/model/FabricanteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/FabricanteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/FabricanteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/FabricanteDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/FabricanteDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/FabricantesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/FabricantesServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detalle-fabricante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detalle-fabricante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/liber/DAW/EntornoServidor/PrimerTrimestre/web_mvc_tienda_informatica" value="3L5Y8O6zi3oqNRjuVc1ulZpiAlM" />
+    </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,13 +47,10 @@
     &quot;assignee&quot;: &quot;ricardovillabrieva&quot;
   }
 }</component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="2906a906-d035-4390-ac39-5536fd705d64" />
-  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/ricardovillabrieva/web_mvc_tienda_informatica.git&quot;,
-    &quot;accountId&quot;: &quot;2906a906-d035-4390-ac39-5536fd705d64&quot;
+    &quot;accountId&quot;: &quot;4594ceee-3202-493d-8d74-378554d4601e&quot;
   }
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -47,6 +64,69 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="5.443701712588868E-169" />
+      <entry key="S2" value="1.3020711180725793E-42" />
+      <entry key="S5" value="2.80606334391463E-17" />
+      <entry key="S10" value="8.546892176281571E-9" />
+      <entry key="S30" value="0.004161571406733282" />
+      <entry key="S60" value="0.11142786882333779" />
+      <entry key="M2" value="0.6142033441924796" />
+      <entry key="M5" value="4.362321582009698" />
+      <entry key="M10" value="14.584015702287735" />
+      <entry key="M15" value="22.891086890459317" />
+      <entry key="M30" value="36.52117396303471" />
+      <entry key="H1" value="46.356360647065024" />
+      <entry key="H2" value="52.28094008555784" />
+      <entry key="H4" value="55.534715622951175" />
+      <entry key="D1" value="58.407183040128636" />
+      <entry key="W1" value="58.91493008836088" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0000000000000009" />
+      <entry key="S60" value="1.0000000298260878" />
+      <entry key="M2" value="1.000172702309954" />
+      <entry key="M5" value="1.031254982392506" />
+      <entry key="M10" value="1.1767907870690828" />
+      <entry key="M15" value="1.3149970013740104" />
+      <entry key="M30" value="1.56124593662138" />
+      <entry key="H1" value="1.7491634912496603" />
+      <entry key="H2" value="1.8655423104907467" />
+      <entry key="H4" value="1.930345264130875" />
+      <entry key="D1" value="1.9880388583805355" />
+      <entry key="W1" value="1.998282440744158" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="6.759859815035277E-14" />
+      <entry key="MS500" value="0.0023226701464896886" />
+      <entry key="S2" value="0.2195315200466624" />
+      <entry key="S5" value="0.5452538663326288" />
+      <entry key="S10" value="0.7384130814757246" />
+      <entry key="S30" value="0.9080112747840255" />
+      <entry key="S60" value="1.0620386361329563" />
+      <entry key="M2" value="1.5888845112294" />
+      <entry key="M5" value="5.376056464839329" />
+      <entry key="M10" value="15.740418760850783" />
+      <entry key="M15" value="24.186173013041895" />
+      <entry key="M30" value="38.06730587052151" />
+      <entry key="H1" value="48.096115279952635" />
+      <entry key="H2" value="54.141221841670934" />
+      <entry key="H4" value="57.46227813629439" />
+      <entry key="D1" value="60.394735694579104" />
+      <entry key="W1" value="60.91314250574995" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
@@ -55,38 +135,81 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2Wr2LzSpBEDiP0OBoM04UC6YayZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Tomcat Server.Tomcat 11.0.0.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "Settings.JavaScript",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 11.0.0.executor&quot;: &quot;Run&quot;,
+    &quot;Tomcat Server.Tomcat 11.0.27.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;copilot.sensitive.allow.file_read.jetbrains_settings_files&quot;: &quot;true&quot;,
+    &quot;copilot.sensitive.allow.file_write.jetbrains_settings_files&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/liber/DAW/EntornoServidor/PrimerTrimestre/web_mvc_tienda_informatica&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.JavaScript&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+          <value>
+            <map>
+              <entry key="Tomcat 11.0.27" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration name="Tomcat 11.0.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 11.0.0" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="21" nameIsGenerated="true">
+    <configuration name="Tomcat 11.0.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 11.0.27" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="25" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="web_mvc_tienda_informatica:war">
+        <artifact name="web-mvc-tiemda-informatica:war">
           <settings>
-            <option name="CONTEXT_PATH" value="/web_mvc_tienda_informatica_war" />
+            <option name="CONTEXT_PATH" value="/web_mvc_tiemda_informatica_war" />
           </settings>
         </artifact>
       </deployment>
@@ -165,6 +288,7 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="web_mvc_tienda_informatica:war" />
+          <artifact name="web-mvc-tiemda-informatica:war" />
         </option>
       </method>
     </configuration>
@@ -172,8 +296,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
-        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
       </set>
     </attachedChunks>
   </component>

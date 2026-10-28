@@ -25,9 +25,15 @@
 		</div>
 		<div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
 
-			<div style="position: absolute; left: 39%; top : 39%;">
+			<div style="position: absolute; left: 5%; top : 39%;">
 				<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/crear">
-					<input type="submit" value="Crear">
+					<input type="submit" value="Crear Fabricante">
+				</form>
+			</div>
+
+			<div style="position: absolute; left: 45%; top : 39%;">
+				<form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear">
+					<input type="submit" value="Crear Producto">
 				</form>
 			</div>
 

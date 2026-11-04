@@ -9,13 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec12d1fc-09c4-4f89-956a-774a4d160b7a" name="Changes" comment="2.1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/ProductoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/dao/ProductoDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/model/Producto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/ProductosServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/crear-producto.jsp" afterDir="false" />
+    <list default="true" id="ec12d1fc-09c4-4f89-956a-774a4d160b7a" name="Changes" comment="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/ProductosServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/ProductosServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/crear-producto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/crear-producto.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,61 +71,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000008168295" />
-      <entry key="S2" value="1.01031675646033" />
-      <entry key="S5" value="1.337270183785169" />
-      <entry key="S10" value="2.1741202550741803" />
-      <entry key="S30" value="4.266646712755981" />
-      <entry key="S60" value="5.6711698030664115" />
-      <entry key="M2" value="7.0964692850382605" />
-      <entry key="M5" value="11.369132595042487" />
-      <entry key="M10" value="19.869545682276595" />
-      <entry key="M15" value="29.20394969720423" />
-      <entry key="M30" value="62.03394349025121" />
-      <entry key="H1" value="113.49257193973034" />
-      <entry key="H2" value="162.88949538712922" />
-      <entry key="H4" value="197.74925046963665" />
-      <entry key="D1" value="233.8671169209597" />
-      <entry key="W1" value="240.8180415230576" />
+      <entry key="MS100" value="1.453460812392905" />
+      <entry key="MS500" value="2.739298552818897" />
+      <entry key="S2" value="6.45128942326265" />
+      <entry key="S5" value="11.01567531281384" />
+      <entry key="S10" value="15.045946426287692" />
+      <entry key="S30" value="19.68830813689859" />
+      <entry key="S60" value="21.28380224769461" />
+      <entry key="M2" value="22.70915306658672" />
+      <entry key="M5" value="26.908003811411515" />
+      <entry key="M10" value="35.00192104954688" />
+      <entry key="M15" value="43.95892991983706" />
+      <entry key="M30" value="75.64578109006997" />
+      <entry key="H1" value="127.5831735978157" />
+      <entry key="H2" value="179.37296478888456" />
+      <entry key="H4" value="216.75517661139412" />
+      <entry key="D1" value="256.0734102763438" />
+      <entry key="W1" value="263.7011207069029" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.1426019581133622E-79" />
-      <entry key="MS500" value="1.7499169235444276E-16" />
-      <entry key="S2" value="1.870674991877376E-4" />
-      <entry key="S5" value="0.06391262571061197" />
-      <entry key="S10" value="0.5094641707872068" />
-      <entry key="S30" value="2.412609011761199" />
-      <entry key="S60" value="3.8053316304455085" />
-      <entry key="M2" value="5.153702765322496" />
-      <entry key="M5" value="7.377464001638792" />
-      <entry key="M10" value="9.605763717787495" />
-      <entry key="M15" value="10.971876900481622" />
-      <entry key="M30" value="13.341843810442153" />
-      <entry key="H1" value="15.620278332433454" />
-      <entry key="H2" value="17.416639059879422" />
-      <entry key="H4" value="18.585609465605284" />
-      <entry key="D1" value="19.74461947889174" />
-      <entry key="W1" value="19.962997461589556" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="3.422262985523702E-271" />
+      <entry key="S2" value="3.933891047750852E-68" />
+      <entry key="S5" value="2.1613059787274885E-27" />
+      <entry key="S10" value="9.368680837789118E-14" />
+      <entry key="S30" value="1.3719613540983676E-4" />
+      <entry key="S60" value="0.02869590839459366" />
+      <entry key="M2" value="0.4475412809322346" />
+      <entry key="M5" value="2.775828256113867" />
+      <entry key="M10" value="5.8921615577862845" />
+      <entry key="M15" value="7.920928458676098" />
+      <entry key="M30" value="11.336093893322467" />
+      <entry key="H1" value="14.398344460906541" />
+      <entry key="H2" value="16.72153904341578" />
+      <entry key="H4" value="18.210956415657222" />
+      <entry key="D1" value="19.67771923374235" />
+      <entry key="W1" value="19.95332051896292" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.186406869415395E-20" />
-      <entry key="MS500" value="1.1693592171341367E-4" />
-      <entry key="S2" value="0.11277091470597068" />
-      <entry key="S5" value="0.7741431424046317" />
-      <entry key="S10" value="2.2427263391764254" />
-      <entry key="S30" value="6.4410256996829744" />
-      <entry key="S60" value="9.328708323140322" />
-      <entry key="M2" value="12.162581804488703" />
-      <entry key="M5" value="18.697258371954025" />
-      <entry key="M10" value="29.439450629779067" />
-      <entry key="M15" value="40.14649541448833" />
-      <entry key="M30" value="75.35516625612544" />
-      <entry key="H1" value="129.09858080312748" />
-      <entry key="H2" value="180.29708819682259" />
-      <entry key="H4" value="216.32964709881696" />
-      <entry key="D1" value="253.6107462014259" />
-      <entry key="W1" value="260.78089415339537" />
+      <entry key="MS100" value="1.16414260146301" />
+      <entry key="MS500" value="2.5942459009009564" />
+      <entry key="S2" value="6.3372119187337566" />
+      <entry key="S5" value="10.910502103202788" />
+      <entry key="S10" value="14.967188560551358" />
+      <entry key="S30" value="19.652332667482753" />
+      <entry key="S60" value="21.29170651138547" />
+      <entry key="M2" value="23.138804927986136" />
+      <entry key="M5" value="29.66104295597855" />
+      <entry key="M10" value="40.86995516732054" />
+      <entry key="M15" value="51.8572578841608" />
+      <entry key="M30" value="86.9636391452936" />
+      <entry key="H1" value="141.96800688218502" />
+      <entry key="H2" value="196.08563949849392" />
+      <entry key="H4" value="234.9609356781969" />
+      <entry key="D1" value="275.7501277297025" />
+      <entry key="W1" value="283.65429433084415" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -145,17 +142,20 @@
   <component name="ProjectSessionTemplates">
     <option name="panelTemplate">
       <template>
+        <option name="ensembleEnabled" value="true" />
+        <option name="ensembleTierId" value="balance" />
         <option name="modeId" value="Agent" />
         <option name="model">
           <model>
             <option name="modelType" value="builtin_id" />
-            <option name="modelValue" value="auto" />
+            <option name="modelValue" value="ensemble" />
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
         <option name="worktreeMode" value="WORKSPACE" />
       </template>
     </option>
+    <option name="version" value="1" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -344,6 +344,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="2.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="2.1" />
+    <MESSAGE value="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno" />
   </component>
 </project>

@@ -13,9 +13,9 @@ import org.iesbelen.dao.FabricanteDAO;
 import org.iesbelen.dao.FabricanteDAOImpl;
 import org.iesbelen.model.Fabricante;
 import org.iesbelen.model.FabricanteDTO;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "fabricantesServlet", value = "/tienda_informatica/fabricantes/*")
 public class FabricantesServlet extends HttpServlet {
@@ -45,10 +45,28 @@ public class FabricantesServlet extends HttpServlet {
 			//	/fabricantes/
 			//	/fabricantes
 
-			// 1. Obtenemos la lista normal de fabricantes
+			// 1. Obtenemos y ordenamos la lista de fabricantes
 			List<Fabricante> listaFabricantes = fabDAO.getAll();
+			String ordenarPor = request.getParameter("ordenar-por");
+			String modoOrdenar = request.getParameter("modo-ordenar");
 
-// 2. Transformamos a FabricanteDTO usando la API de Streams de Java 8
+			if (!"codigo".equals(ordenarPor) && !"nombre".equals(ordenarPor)) {
+				ordenarPor = "nombre";
+			}
+			if (!"asc".equals(modoOrdenar) && !"desc".equals(modoOrdenar)) {
+				modoOrdenar = "asc";
+			}
+
+			Comparator<Fabricante> comparador = "codigo".equals(ordenarPor)
+					? Comparator.comparingInt(Fabricante::getCodigo)
+					: Comparator.comparing(Fabricante::getNombre,
+							Comparator.nullsFirst(String.CASE_INSENSITIVE_ORDER));
+			if ("desc".equals(modoOrdenar)) {
+				comparador = comparador.reversed();
+			}
+			listaFabricantes.sort(comparador);
+
+			// 2. Transformamos a FabricanteDTO usando la API de Streams de Java
 			List<FabricanteDTO> listaFabricantesDTO = listaFabricantes.stream()
 					.map(fab -> {
 						FabricanteDTO dto = new FabricanteDTO();
@@ -61,11 +79,12 @@ public class FabricantesServlet extends HttpServlet {
 
 						return dto;
 					})
-					.toList(); // Si tu entorno usa Java anterior a la versión 16, cambia .toList() por .collect(Collectors.toList())
+					.toList();
 
-// 3. Enviamos la lista de DTOs al request
+			// 3. Enviamos la lista y los valores seleccionados al request
 			request.setAttribute("listaFabricantes", listaFabricantesDTO);
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
+			request.setAttribute("ordenarPor", ordenarPor);
+			request.setAttribute("modoOrdenar", modoOrdenar);
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
 			        		       
 		} else {

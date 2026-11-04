@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="org.iesbelen.model.Producto"%>
+<%@ page import="org.iesbelen.model.Fabricante"%>
+<%@ page import="java.util.List"%>
 <%@ page import="java.util.Optional"%>
 <html>
 <head>
@@ -46,6 +48,29 @@
             </div>
             <div style="float: none;width: auto;overflow: hidden;">
                 <input name="nombre" />
+            </div>
+        </div>
+
+        <div style="margin-top: 6px;" class="clearfix">
+            <div style="float: left;width: 50%">
+                Fabricante
+            </div>
+            <div style="float: none;width: auto;overflow: hidden;">
+                <select name="codigoFabricante" id="codigoFabricante">
+                    <%
+                        List<Fabricante> fabricantes =
+                                (List<Fabricante>) request.getAttribute("listaFabricantes");
+                        if (fabricantes != null) {
+                            for (Fabricante fabricante : fabricantes) {
+                    %>
+                    <option value="<%= fabricante.getCodigo() %>">
+                        <%= fabricante.getNombre() %>
+                    </option>
+                    <%
+                            }
+                        }
+                    %>
+                </select>
             </div>
         </div>
 

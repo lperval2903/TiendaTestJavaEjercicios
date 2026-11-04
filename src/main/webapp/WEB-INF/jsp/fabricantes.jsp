@@ -32,13 +32,29 @@
 			</div>
 
 			<div style="position: absolute; left: 45%; top : 39%;">
-				<form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear">
-					<input type="submit" value="Crear Producto">
+				<form action="${pageContext.request.contextPath}/tienda_informatica/producto">
+					<input type="submit" value="Productos">
 				</form>
 			</div>
 
 		</div>
 	</div>
+	<div class="clearfix">
+		<hr/>
+	</div>
+	<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes" method="get">
+		<label for="ordenar-por">Ordenar por:</label>
+		<select name="ordenar-por" id="ordenar-por">
+			<option value="nombre" ${ordenarPor == 'nombre' ? 'selected' : ''}>Nombre</option>
+			<option value="codigo" ${ordenarPor == 'codigo' ? 'selected' : ''}>Código</option>
+		</select>
+		<label for="modo-ordenar">Modo:</label>
+		<select name="modo-ordenar" id="modo-ordenar">
+			<option value="asc" ${modoOrdenar == 'asc' ? 'selected' : ''}>Ascendente</option>
+			<option value="desc" ${modoOrdenar == 'desc' ? 'selected' : ''}>Descendente</option>
+		</select>
+		<input type="submit" value="Ordenar" />
+	</form>
 	<div class="clearfix">
 		<hr/>
 	</div>

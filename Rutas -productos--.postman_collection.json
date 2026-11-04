@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "d25bb42e-0cec-4ac7-a6ce-4b6b47dbd4a0",
+		"name": "Rutas /producto/*",
+		"description": "Suite de peticiones para comprobar las rutas disponibles de productos.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/tienda_informatica"
+		},
+		{
+			"key": "productoId",
+			"value": "1"
+		}
+	],
+	"item": [
+		{
+			"name": "GET /producto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/producto",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /producto/crear",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/producto/crear",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"producto",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /producto/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/producto/{{productoId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"producto",
+						"{{productoId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /producto/crear",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nombre",
+							"value": "Nuevo producto",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/producto/crear",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"producto",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

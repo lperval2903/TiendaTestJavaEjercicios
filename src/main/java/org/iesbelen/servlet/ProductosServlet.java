@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import org.iesbelen.dao.ProductoDAO;
 import org.iesbelen.dao.ProductoDAOImpl;
+import org.iesbelen.dao.FabricanteDAO;
+import org.iesbelen.dao.FabricanteDAOImpl;
 import org.iesbelen.model.Producto;
 
 @WebServlet(name = "productosServlet", value = "/tienda_informatica/producto/*")
@@ -36,6 +38,8 @@ public class ProductosServlet extends HttpServlet {
             String[] pathParts = pathInfo.replaceAll("/$", "").split("/");
 
             if (pathParts.length == 2 && "crear".equals(pathParts[1])) {
+                FabricanteDAO fabricanteDAO = new FabricanteDAOImpl();
+                request.setAttribute("listaFabricantes", fabricanteDAO.getAll());
                 dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/crear-producto.jsp");
             } else if (pathParts.length == 2) {
                 ProductoDAO productoDAO = new ProductoDAOImpl();

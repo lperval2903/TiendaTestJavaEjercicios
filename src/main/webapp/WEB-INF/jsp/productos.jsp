@@ -34,6 +34,12 @@
         </div>
     </div>
     <div class="clearfix"><hr/></div>
+    <form action="${pageContext.request.contextPath}/tienda_informatica/producto" method="get">
+        <label for="busqueda">Buscar por nombre:</label>
+        <input type="search" name="busqueda" id="busqueda" value="${busqueda}" />
+        <input type="submit" value="Buscar" />
+    </form>
+    <div class="clearfix"><hr/></div>
     <div class="clearfix">
         <div style="float: left;width: 20%">Código</div>
         <div style="float: none;width: auto;overflow: hidden;">Nombre</div>

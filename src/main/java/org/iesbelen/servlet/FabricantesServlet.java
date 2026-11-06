@@ -15,6 +15,7 @@ import org.iesbelen.model.Fabricante;
 import org.iesbelen.model.FabricanteDTO;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 @WebServlet(name = "fabricantesServlet", value = "/tienda_informatica/fabricantes/*")
@@ -49,6 +50,16 @@ public class FabricantesServlet extends HttpServlet {
 			List<Fabricante> listaFabricantes = fabDAO.getAll();
 			String ordenarPor = request.getParameter("ordenar-por");
 			String modoOrdenar = request.getParameter("modo-ordenar");
+			String busqueda = request.getParameter("busqueda");
+			if (busqueda == null) {
+				busqueda = "";
+			}
+			busqueda = busqueda.trim();
+			if (!busqueda.isEmpty()) {
+				String textoBusqueda = busqueda.toLowerCase(Locale.ROOT);
+				listaFabricantes.removeIf(fabricante -> fabricante.getNombre() == null
+						|| !fabricante.getNombre().toLowerCase(Locale.ROOT).contains(textoBusqueda));
+			}
 
 			if (!"codigo".equals(ordenarPor) && !"nombre".equals(ordenarPor)) {
 				ordenarPor = "nombre";
@@ -85,6 +96,7 @@ public class FabricantesServlet extends HttpServlet {
 			request.setAttribute("listaFabricantes", listaFabricantesDTO);
 			request.setAttribute("ordenarPor", ordenarPor);
 			request.setAttribute("modoOrdenar", modoOrdenar);
+			request.setAttribute("busqueda", busqueda);
 			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
 			        		       
 		} else {

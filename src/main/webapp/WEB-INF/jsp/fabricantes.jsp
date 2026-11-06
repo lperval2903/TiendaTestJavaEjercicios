@@ -43,6 +43,8 @@
 		<hr/>
 	</div>
 	<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes" method="get">
+		<label for="busqueda">Buscar por nombre:</label>
+		<input type="search" name="busqueda" id="busqueda" value="${busqueda}" />
 		<label for="ordenar-por">Ordenar por:</label>
 		<select name="ordenar-por" id="ordenar-por">
 			<option value="nombre" ${ordenarPor == 'nombre' ? 'selected' : ''}>Nombre</option>

@@ -2,6 +2,7 @@ package org.iesbelen.servlet;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import jakarta.servlet.RequestDispatcher;
@@ -32,7 +33,18 @@ public class ProductosServlet extends HttpServlet {
         if (pathInfo == null || "/".equals(pathInfo)) {
             ProductoDAO productoDAO = new ProductoDAOImpl();
             List<Producto> productos = productoDAO.getAll();
+            String busqueda = request.getParameter("busqueda");
+            if (busqueda == null) {
+                busqueda = "";
+            }
+            busqueda = busqueda.trim();
+            if (!busqueda.isEmpty()) {
+                String textoBusqueda = busqueda.toLowerCase(Locale.ROOT);
+                productos.removeIf(producto -> producto.getNombre() == null
+                        || !producto.getNombre().toLowerCase(Locale.ROOT).contains(textoBusqueda));
+            }
             request.setAttribute("listaProductos", productos);
+            request.setAttribute("busqueda", busqueda);
             dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/productos.jsp");
         } else {
             String[] pathParts = pathInfo.replaceAll("/$", "").split("/");

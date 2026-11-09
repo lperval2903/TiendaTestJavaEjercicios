@@ -9,12 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec12d1fc-09c4-4f89-956a-774a4d160b7a" name="Changes" comment="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno">
+    <list default="true" id="ec12d1fc-09c4-4f89-956a-774a4d160b7a" name="Changes" comment="Añadir funcionalidad de búsqueda por nombre en las páginas de fabricantes y productos">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragmentos/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fragmentos/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/producto/editar-producto.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usuario/crear-usuario.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usuario/detalle-usuario.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usuario/editar-usuario.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/usuario/usuario.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/FabricantesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/FabricantesServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/ProductosServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/iesbelen/servlet/ProductosServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/productos.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/productos.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/crear-fabricante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricante/crear-fabricante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/crear-producto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/producto/crear-producto.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detalle-fabricante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricante/detalle-fabricante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/detalle-producto.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/producto/detalle-producto.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/editar-fabricante.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricante/editar-fabricante.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricantes.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fabricante/fabricantes.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/productos.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/producto/productos.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +42,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -72,61 +85,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="2.303485410766444" />
-      <entry key="MS500" value="4.8062350080020995" />
-      <entry key="S2" value="10.15079519211567" />
-      <entry key="S5" value="18.89248845850582" />
-      <entry key="S10" value="25.663813532223223" />
-      <entry key="S30" value="32.532463470915914" />
-      <entry key="S60" value="34.936356246443" />
-      <entry key="M2" value="38.79469308605282" />
-      <entry key="M5" value="50.436699725703534" />
-      <entry key="M10" value="64.11442326331183" />
-      <entry key="M15" value="75.38985657939928" />
-      <entry key="M30" value="109.0954673645883" />
-      <entry key="H1" value="163.05805781140106" />
-      <entry key="H2" value="217.9706371041106" />
-      <entry key="H4" value="258.27529161295473" />
-      <entry key="D1" value="301.1894115348731" />
-      <entry key="W1" value="309.57101562937066" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000000000013882" />
+      <entry key="S2" value="1.0019380704448317" />
+      <entry key="S5" value="1.0913489679007449" />
+      <entry key="S10" value="1.4070433758086454" />
+      <entry key="S30" value="3.0936299414151764" />
+      <entry key="S60" value="5.518177161064786" />
+      <entry key="M2" value="8.506697572182075" />
+      <entry key="M5" value="15.58626947199554" />
+      <entry key="M10" value="32.22694321686561" />
+      <entry key="M15" value="49.05803839918732" />
+      <entry key="M30" value="93.02303712126874" />
+      <entry key="H1" value="158.34349021824286" />
+      <entry key="H2" value="227.49860162808778" />
+      <entry key="H4" value="280.620013189645" />
+      <entry key="D1" value="339.29542071645903" />
+      <entry key="W1" value="350.9972993470019" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="8.30757250659003E-131" />
-      <entry key="S5" value="1.8389798894467815E-52" />
-      <entry key="S10" value="2.732806026129943E-26" />
-      <entry key="S30" value="9.09882542214367E-9" />
-      <entry key="S60" value="2.336908479233416E-4" />
-      <entry key="M2" value="0.04038722037007229" />
-      <entry key="M5" value="1.0606129797603914" />
-      <entry key="M10" value="3.6421415381314404" />
-      <entry key="M15" value="5.74774562127444" />
-      <entry key="M30" value="9.656598140661812" />
-      <entry key="H1" value="13.289018970068868" />
-      <entry key="H2" value="16.064470977637143" />
-      <entry key="H4" value="17.849573582963416" />
-      <entry key="D1" value="19.612092883846504" />
-      <entry key="W1" value="19.943800403617594" />
+      <entry key="S2" value="1.3008307661910004E-140" />
+      <entry key="S5" value="1.1110463280386578E-56" />
+      <entry key="S10" value="1.064634730231094E-28" />
+      <entry key="S30" value="5.96804572380478E-10" />
+      <entry key="S60" value="3.857466924404955E-5" />
+      <entry key="M2" value="0.01180355968934221" />
+      <entry key="M5" value="0.4490184587662521" />
+      <entry key="M10" value="2.054473811538908" />
+      <entry key="M15" value="3.9418767496085887" />
+      <entry key="M30" value="8.659010957099824" />
+      <entry key="H1" value="13.966409131136926" />
+      <entry key="H2" value="18.37694974660474" />
+      <entry key="H4" value="21.33324756461987" />
+      <entry key="D1" value="24.330609831556746" />
+      <entry key="W1" value="24.902809853748757" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.1691172365038462" />
-      <entry key="MS500" value="4.7169808467663845" />
-      <entry key="S2" value="10.11257711843471" />
-      <entry key="S5" value="18.86516745483253" />
-      <entry key="S10" value="25.644526270445095" />
-      <entry key="S30" value="32.52395051505615" />
-      <entry key="S60" value="34.931784368110364" />
-      <entry key="M2" value="38.83085707591567" />
-      <entry key="M5" value="51.48727222663272" />
-      <entry key="M10" value="67.74087558539722" />
-      <entry key="M15" value="81.12065315356641" />
-      <entry key="M30" value="118.73623794374012" />
-      <entry key="H1" value="176.33445457914337" />
-      <entry key="H2" value="234.02651467395822" />
-      <entry key="H4" value="276.119731927794" />
-      <entry key="D1" value="320.80049941912137" />
-      <entry key="W1" value="329.51466826962536" />
+      <entry key="MS100" value="1.421793928794501E-4" />
+      <entry key="MS500" value="0.1700463565530088" />
+      <entry key="S2" value="0.6433917791105258" />
+      <entry key="S5" value="0.9150452763157251" />
+      <entry key="S10" value="1.2945563969417404" />
+      <entry key="S30" value="3.0256733588924836" />
+      <entry key="S60" value="5.463759962046068" />
+      <entry key="M2" value="8.478973747390981" />
+      <entry key="M5" value="16.00932471989399" />
+      <entry key="M10" value="34.25865516364644" />
+      <entry key="M15" value="52.978007117048634" />
+      <entry key="M30" value="101.66243100980302" />
+      <entry key="H1" value="172.294232734916" />
+      <entry key="H2" value="245.86475624964294" />
+      <entry key="H4" value="301.9467367135336" />
+      <entry key="D1" value="363.62473577522337" />
+      <entry key="W1" value="375.89991831208755" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -183,8 +196,10 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/liber/DAW/EntornoServidor/PrimerTrimestre/web_mvc_tienda_informatica&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
@@ -195,6 +210,13 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\liber\DAW\EntornoServidor\PrimerTrimestre\web_mvc_tienda_informatica\src\main\webapp\WEB-INF\jsp\usuario" />
+      <recent name="C:\Users\liber\DAW\EntornoServidor\PrimerTrimestre\web_mvc_tienda_informatica\src\main\webapp\WEB-INF\jsp\producto" />
+      <recent name="C:\Users\liber\DAW\EntornoServidor\PrimerTrimestre\web_mvc_tienda_informatica\src\main\webapp\WEB-INF\jsp\fabricante" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationStatuses">
       <map>
@@ -346,6 +368,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="2.1" />
     <MESSAGE value="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglar Productos anadir uno propio.&#10;&#10;Subida la pagina para crear uno" />
+    <MESSAGE value="Añadir funcionalidad de búsqueda por nombre en las páginas de fabricantes y productos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadir funcionalidad de búsqueda por nombre en las páginas de fabricantes y productos" />
   </component>
 </project>

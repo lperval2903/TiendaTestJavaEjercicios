@@ -32,7 +32,7 @@
             <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
 
                 <div style="position: absolute; left: 39%; top : 39%;">
-                    <input type="submit" value="Crear"/>
+                    <input type="submit" value="CrearProducto"/>
                 </div>
 
             </div>
@@ -53,10 +53,10 @@
 
         <div style="margin-top: 6px;" class="clearfix">
             <div style="float: left;width: 50%">
-                Fabricante
+                Fabricante:
             </div>
             <div style="float: none;width: auto;overflow: hidden;">
-                <select name="codigoFabricante" id="codigoFabricante">
+                <select name="codigoFabricantes" id="codigoFabricantes">
                     <%
                         List<Fabricante> fabricantes =
                                 (List<Fabricante>) request.getAttribute("listaFabricantes");
@@ -72,6 +72,7 @@
                     %>
                 </select>
             </div>
+
         </div>
 
     </form>

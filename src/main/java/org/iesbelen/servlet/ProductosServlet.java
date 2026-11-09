@@ -45,20 +45,20 @@ public class ProductosServlet extends HttpServlet {
             }
             request.setAttribute("listaProductos", productos);
             request.setAttribute("busqueda", busqueda);
-            dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/productos.jsp");
+            dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/producto/productos.jsp");
         } else {
             String[] pathParts = pathInfo.replaceAll("/$", "").split("/");
 
             if (pathParts.length == 2 && "crear".equals(pathParts[1])) {
                 FabricanteDAO fabricanteDAO = new FabricanteDAOImpl();
                 request.setAttribute("listaFabricantes", fabricanteDAO.getAll());
-                dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/crear-producto.jsp");
+                dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/producto/crear-producto.jsp");
             } else if (pathParts.length == 2) {
                 ProductoDAO productoDAO = new ProductoDAOImpl();
                 try {
                     Optional<Producto> producto = productoDAO.find(Integer.parseInt(pathParts[1]));
                     producto.ifPresent(value -> request.setAttribute("producto", value));
-                    dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/detalle-producto.jsp");
+                    dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/producto/detalle-producto.jsp");
                 } catch (NumberFormatException exception) {
                     response.sendError(HttpServletResponse.SC_NOT_FOUND);
                     return;

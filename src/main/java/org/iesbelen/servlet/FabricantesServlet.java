@@ -97,7 +97,7 @@ public class FabricantesServlet extends HttpServlet {
 			request.setAttribute("ordenarPor", ordenarPor);
 			request.setAttribute("modoOrdenar", modoOrdenar);
 			request.setAttribute("busqueda", busqueda);
-			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
+			dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/fabricantes.jsp");
 			        		       
 		} else {
 			// GET
@@ -115,7 +115,7 @@ public class FabricantesServlet extends HttpServlet {
 				
 				// GET
 				// /fabricantes/create									
-				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/crear-fabricante.jsp");
+				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/crear-fabricante.jsp");
 
 
 			} else if (pathParts.length == 2) {
@@ -140,11 +140,11 @@ public class FabricantesServlet extends HttpServlet {
 						request.setAttribute("fabricante", dto);
 					}
 
-					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/detalle-fabricante.jsp");
+					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/detalle-fabricante.jsp");
 
 				} catch (NumberFormatException nfe) {
 					nfe.printStackTrace();
-					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
+					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/fabricantes.jsp");
 				}
 				
 			} else if (pathParts.length == 3 && "editar".equals(pathParts[1]) ) {
@@ -154,18 +154,18 @@ public class FabricantesServlet extends HttpServlet {
 				// /fabricantes/edit/{id}
 				try {
 					request.setAttribute("fabricante",fabDAO.find(Integer.parseInt(pathParts[2])));
-					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/editar-fabricante.jsp");
+					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/editar-fabricante.jsp");
 					        								
 				} catch (NumberFormatException nfe) {
 					nfe.printStackTrace();
-					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
+					dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/fabricantes.jsp");
 				}
 				
 				
 			} else {
 				
 				System.out.println("Opción POST no soportada.");
-				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricantes.jsp");
+				dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/fabricante/fabricantes.jsp");
 			
 			}
 			

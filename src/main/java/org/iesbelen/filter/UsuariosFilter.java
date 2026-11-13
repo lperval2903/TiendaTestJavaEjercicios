@@ -36,10 +36,7 @@ public class UsuariosFilter implements Filter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
         String requestUri = httpRequest.getRequestURI();
-        String usuariosPath = requestUri.contains("/tienda_informatica/usuarios")
-                ? "/tienda_informatica/usuarios"
-                : "/usuarios";
-        String loginUri = httpRequest.getContextPath() + usuariosPath + "/login";
+        String loginUri = httpRequest.getContextPath() + "/tienda_informatica/usuarios/login";
         if (requestUri.endsWith("/usuarios/login") || requestUri.endsWith("/usuarios/login/")) {
             chain.doFilter(request, response);
             return;

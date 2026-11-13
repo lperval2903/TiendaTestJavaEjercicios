@@ -9,12 +9,16 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import org.iesbelen.dao.UsuarioDAO;
 import org.iesbelen.dao.UsuarioDAOImpl;
 import org.iesbelen.model.Usuario;
 
-@WebServlet(name = "usuariosServlet", value = "/tienda_informatica/usuarios/*")
+@WebServlet(name = "usuariosServlet", value = {
+        "/usuarios/*",
+        "/tienda_informatica/usuarios/*"
+})
 public class UsuariosServlet extends HttpServlet {
 
     private final UsuarioDAO usuarioDAO = new UsuarioDAOImpl();
@@ -28,6 +32,8 @@ public class UsuariosServlet extends HttpServlet {
             forward(request, response, "/WEB-INF/jsp/usuario/usuario.jsp");
         } else if ("/crear".equals(path)) {
             forward(request, response, "/WEB-INF/jsp/usuario/crear-usuario.jsp");
+        } else if ("/login".equals(path)) {
+            forward(request, response, "/WEB-INF/jsp/usuario/login.jsp");
         } else if (path.startsWith("/editar/")) {
             forwardEdit(request, response, path);
         } else if (path.startsWith("/")) {
@@ -41,7 +47,23 @@ public class UsuariosServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         String path = normalize(request.getPathInfo());
-        if ("/crear".equals(path)) {
+        if ("/login".equals(path)) {
+            Optional<Usuario> usuario = usuarioDAO.authenticate(
+                    request.getParameter("usuario"), request.getParameter("password"));
+            if (usuario.isEmpty()) {
+                request.setAttribute("error", "Usuario o contraseña incorrectos");
+                try {
+                    forward(request, response, "/WEB-INF/jsp/usuario/login.jsp");
+                } catch (ServletException exception) {
+                    throw new IOException("No se pudo mostrar el login", exception);
+                }
+                return;
+            }
+            HttpSession session = request.getSession();
+            session.setAttribute("usuario", usuario.get());
+            response.sendRedirect(request.getContextPath() + "/usuarios");
+            return;
+        } else if ("/crear".equals(path)) {
             usuarioDAO.create(readUser(request, 0, true));
         } else if (path.startsWith("/editar/")) {
             usuarioDAO.update(readUser(request, parseId(path, "/editar/"), false));

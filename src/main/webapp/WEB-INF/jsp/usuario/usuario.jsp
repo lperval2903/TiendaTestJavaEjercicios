@@ -6,6 +6,7 @@
     <title>Usuarios</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/fragmentos/header.jsp" />
 <h1>Usuarios</h1>
 <a href="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear">Crear usuario</a>
 <table border="1">
@@ -25,5 +26,6 @@
     </tr>
 <% } %>
 </table>
+<jsp:include page="/WEB-INF/jsp/fragmentos/footer.jsp" />
 </body>
 </html>

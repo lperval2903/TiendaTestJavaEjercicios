@@ -10,6 +10,7 @@ public interface UsuarioDAO {
     void create(Usuario usuario);
     List<Usuario> getAll();
     Optional<Usuario> find(int id);
+    Optional<Usuario> authenticate(String username, String password);
     void update(Usuario usuario);
     void delete(int id);
 }

@@ -1,8 +1,5 @@
 package org.iesbelen.dao;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.iesbelen.model.Usuario;
+import org.iesbelen.util.PasswordUtils;
 
 public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
 
@@ -23,7 +21,7 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
             String sql = "INSERT INTO usuario (usuario, password, rol) VALUES (?, ?, ?)";
             try (PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 statement.setString(1, usuario.getUsuario());
-                statement.setString(2, hashPassword(usuario.getPassword()));
+                statement.setString(2, PasswordUtils.hashPassword(usuario.getPassword()));
                 statement.setString(3, usuario.getRol());
                 statement.executeUpdate();
                 try (ResultSet keys = statement.getGeneratedKeys()) {
@@ -72,6 +70,26 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
     }
 
     @Override
+    public Optional<Usuario> authenticate(String username, String password) {
+        try (Connection connection = connectDB()) {
+            ensureUsuarioTable(connection);
+            try (PreparedStatement statement = connection.prepareStatement(
+                    "SELECT idUsuario, usuario, password, rol FROM usuario WHERE usuario = ?")) {
+                statement.setString(1, username);
+                try (ResultSet resultSet = statement.executeQuery()) {
+                    if (!resultSet.next() || !PasswordUtils.verifyPassword(
+                            password, resultSet.getString("password"))) {
+                        return Optional.empty();
+                    }
+                    return Optional.of(readUser(resultSet));
+                }
+            }
+        } catch (SQLException | ClassNotFoundException exception) {
+            throw new IllegalStateException("No se pudo autenticar el usuario", exception);
+        }
+    }
+
+    @Override
     public void update(Usuario usuario) {
         try (Connection connection = connectDB()) {
             ensureUsuarioTable(connection);
@@ -88,7 +106,7 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
                 try (PreparedStatement statement = connection.prepareStatement(
                         "UPDATE usuario SET usuario = ?, password = ?, rol = ? WHERE idUsuario = ?")) {
                     statement.setString(1, usuario.getUsuario());
-                    statement.setString(2, hashPassword(password));
+                    statement.setString(2, PasswordUtils.hashPassword(password));
                     statement.setString(3, usuario.getRol());
                     statement.setInt(4, usuario.getIdUsuario());
                     statement.executeUpdate();
@@ -136,17 +154,4 @@ public class UsuarioDAOImpl extends AbstractDAOImpl implements UsuarioDAO {
         }
     }
 
-    private String hashPassword(String password) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-512");
-            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            StringBuilder result = new StringBuilder(hash.length * 2);
-            for (byte value : hash) {
-                result.append(String.format("%02x", value));
-            }
-            return result.toString();
-        } catch (NoSuchAlgorithmException exception) {
-            throw new IllegalStateException("No se pudo cifrar la contraseña", exception);
-        }
-    }
 }

@@ -4,6 +4,7 @@
 <html>
 <head><meta charset="UTF-8"><title>Editar usuario</title></head>
 <body>
+<jsp:include page="/WEB-INF/jsp/fragmentos/header.jsp" />
 <% Usuario usuario = (Usuario) request.getAttribute("usuario"); %>
 <h1>Editar usuario</h1>
 <form method="post" action="${pageContext.request.contextPath}/tienda_informatica/usuarios/editar/<%= usuario.getIdUsuario() %>">
@@ -19,5 +20,6 @@
     <button type="submit">Guardar</button>
 </form>
 <a href="${pageContext.request.contextPath}/tienda_informatica/usuarios">Volver</a>
+<jsp:include page="/WEB-INF/jsp/fragmentos/footer.jsp" />
 </body>
 </html>

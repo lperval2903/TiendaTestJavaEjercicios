@@ -14,6 +14,7 @@
     <h1>Detalle del producto</h1>
     <p>Código: <%= producto.getCodigo() %></p>
     <p>Nombre: <%= producto.getNombre() %></p>
+    <p>Código de fabricante: <%= producto.getCodigoFabricante() %></p>
 <%
     } else {
 %>

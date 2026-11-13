@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@page import="org.iesbelen.model.FabricanteDTO"%>
+<%@page import="org.iesbelen.model.Usuario"%>
 <%@page import="java.util.List"%>
 
 <!DOCTYPE html>
@@ -17,25 +18,31 @@
 	</style>
 </head>
 <body>
+<%
+	Usuario usuarioSesion = (Usuario) session.getAttribute("usuario");
+	boolean puedeGestionar = usuarioSesion == null || "administrador".equals(usuarioSesion.getRol());
+%>
 
 <div id="contenedora" style="float:none; margin: 0 auto;width: 900px;" >
 	<div class="clearfix">
 		<div style="float: left; width: 50%">
 			<h1>Fabricantes</h1>
 		</div>
-		<div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
-
-			<div style="position: absolute; left: 5%; top : 39%;">
-				<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/crear">
+		<div style="float: none;width: auto;overflow: hidden;min-height: 80px;">
+			<form action="${pageContext.request.contextPath}/tienda_informatica/producto" style="display:inline;">
+				<input type="submit" value="Productos">
+			</form>
+			<% if (puedeGestionar) { %>
+				<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/crear" style="display:inline;">
 					<input type="submit" value="Crear Fabricante">
 				</form>
-			</div>
-
-			<div style="position: absolute; left: 45%; top : 39%;">
-				<form action="${pageContext.request.contextPath}/tienda_informatica/producto">
-					<input type="submit" value="Productos">
+				<form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear" style="display:inline;">
+					<input type="submit" value="Crear Producto">
 				</form>
-			</div>
+				<form action="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear" style="display:inline;">
+					<input type="submit" value="Crear Usuario">
+				</form>
+			<% } %>
 
 		</div>
 	</div>
@@ -84,14 +91,16 @@
 			<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/<%= fabricante.getCodigo() %>" style="display: inline;">
 				<input type="submit" value="Ver Detalle" />
 			</form>
-			<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/editar/<%= fabricante.getCodigo() %>" style="display: inline;">
-				<input type="submit" value="Editar" />
-			</form>
-			<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/borrar/" method="post" style="display: inline;">
-				<input type="hidden" name="__method__" value="delete"/>
-				<input type="hidden" name="codigo" value="<%= fabricante.getCodigo() %>"/>
-				<input type="submit" value="Eliminar" />
-			</form>
+			<% if (puedeGestionar) { %>
+				<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/editar/<%= fabricante.getCodigo() %>" style="display: inline;">
+					<input type="submit" value="Editar" />
+				</form>
+				<form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/borrar/" method="post" style="display: inline;">
+					<input type="hidden" name="__method__" value="delete"/>
+					<input type="hidden" name="codigo" value="<%= fabricante.getCodigo() %>"/>
+					<input type="submit" value="Eliminar" />
+				</form>
+			<% } %>
 		</div>
 	</div>
 

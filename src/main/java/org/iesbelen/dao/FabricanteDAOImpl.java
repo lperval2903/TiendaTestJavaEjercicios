@@ -22,8 +22,6 @@ public class FabricanteDAOImpl extends AbstractDAOImpl implements FabricanteDAO{
 		Connection conn = null;
 		PreparedStatement ps = null;
         ResultSet rs = null;
-        ResultSet rsGenKeys = null;
-
         try {
         	conn = connectDB();
 
@@ -41,9 +39,10 @@ public class FabricanteDAOImpl extends AbstractDAOImpl implements FabricanteDAO{
             if (rows == 0) 
             	System.out.println("INSERT de fabricante con 0 filas insertadas.");
             
-            rsGenKeys = ps.getGeneratedKeys();
-            if (rsGenKeys.next()) 
-            	fabricante.setCodigo(rsGenKeys.getInt(1));
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next())
+                    fabricante.setCodigo(generatedKeys.getInt(1));
+            }
                       
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -207,7 +206,7 @@ public class FabricanteDAOImpl extends AbstractDAOImpl implements FabricanteDAO{
 		try {
 			conn = connectDB();
 
-			ps = conn.prepareStatement("SELECT COUNT(*) FROM fabricantes WHERE codigo_fabricante = ?");
+			ps = conn.prepareStatement("SELECT COUNT(*) FROM producto WHERE codigo_fabricante = ?");
 			ps.setInt(1, id);
 
 			rs = ps.executeQuery();

@@ -205,7 +205,7 @@ public class FabricantesServlet extends HttpServlet {
 			System.out.println("Opción POST no soportada.");
 		}
 
-		response.sendRedirect("../../../tienda_informatica/fabricantes");
+		response.sendRedirect(request.getContextPath() + "/tienda_informatica/fabricantes");
 		//response.sendRedirect("/tienda_informatica/fabricantes");
 	}
 	

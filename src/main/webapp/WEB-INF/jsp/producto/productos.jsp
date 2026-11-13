@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="org.iesbelen.model.Producto"%>
+<%@ page import="org.iesbelen.model.Usuario"%>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -15,22 +16,30 @@
     </style>
 </head>
 <body>
+<%
+    Usuario usuarioSesion = (Usuario) session.getAttribute("usuario");
+    boolean puedeGestionar = usuarioSesion == null || "administrador".equals(usuarioSesion.getRol());
+%>
 <div id="contenedora" style="float:none; margin: 0 auto;width: 900px;">
     <div class="clearfix">
         <div style="float: left; width: 50%">
             <h1>Productos</h1>
         </div>
-        <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
-            <div style="position: absolute; left: 5%; top: 39%;">
-                <form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes">
-                    <input type="submit" value="Fabricantes">
-                </form>
-            </div>
-            <div style="position: absolute; left: 45%; top: 39%;">
-                <form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear">
+        <div style="float: none;width: auto;overflow: hidden;min-height: 80px;">
+            <form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes" style="display:inline;">
+                <input type="submit" value="Fabricantes">
+            </form>
+            <% if (puedeGestionar) { %>
+                <form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear" style="display:inline;">
                     <input type="submit" value="Crear Producto">
                 </form>
-            </div>
+                <form action="${pageContext.request.contextPath}/tienda_informatica/fabricantes/crear" style="display:inline;">
+                    <input type="submit" value="Crear Fabricante">
+                </form>
+                <form action="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear" style="display:inline;">
+                    <input type="submit" value="Crear Usuario">
+                </form>
+            <% } %>
         </div>
     </div>
     <div class="clearfix"><hr/></div>

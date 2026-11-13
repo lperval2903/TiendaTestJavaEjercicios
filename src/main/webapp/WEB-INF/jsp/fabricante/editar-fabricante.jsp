@@ -60,9 +60,7 @@
 		</div>
 		
 		<% 	} else { %>
-			
-				request.sendRedirect("fabricantes/");
-		
+			<p>Fabricante no encontrado.</p>
 		<% 	} %>
 	</form>
 </div>

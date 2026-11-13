@@ -47,6 +47,11 @@
 		</div>
 
 	</form>
+	<p>
+		<a href="${pageContext.request.contextPath}/tienda_informatica/fabricantes">Volver a fabricantes</a>
+		<a href="${pageContext.request.contextPath}/tienda_informatica/producto">Productos</a>
+		<a href="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear">Crear usuario</a>
+	</p>
 </div>
 
 </body>

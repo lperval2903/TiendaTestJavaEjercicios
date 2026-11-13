@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="contenedora" style="float:none; margin: 0 auto;width: 900px;" >
-    <form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear/" method="post">
+    <form action="${pageContext.request.contextPath}/tienda_informatica/producto/crear" method="post">
         <div class="clearfix">
             <div style="float: left; width: 50%">
                 <h1>Crear Producto</h1>
@@ -32,7 +32,7 @@
             <div style="float: none;width: auto;overflow: hidden;min-height: 80px;position: relative;">
 
                 <div style="position: absolute; left: 39%; top : 39%;">
-                    <input type="submit" value="CrearProducto"/>
+                    <input type="submit" value="Crear Producto"/>
                 </div>
 
             </div>
@@ -56,7 +56,7 @@
                 Fabricante:
             </div>
             <div style="float: none;width: auto;overflow: hidden;">
-                <select name="codigoFabricantes" id="codigoFabricantes">
+                <select name="codigoFabricantes" id="codigoFabricantes" required>
                     <%
                         List<Fabricante> fabricantes =
                                 (List<Fabricante>) request.getAttribute("listaFabricantes");
@@ -76,6 +76,11 @@
         </div>
 
     </form>
+    <p>
+        <a href="${pageContext.request.contextPath}/tienda_informatica/producto">Volver a productos</a>
+        <a href="${pageContext.request.contextPath}/tienda_informatica/fabricantes">Fabricantes</a>
+        <a href="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear">Crear usuario</a>
+    </p>
 </div>
 </body>
 </html>

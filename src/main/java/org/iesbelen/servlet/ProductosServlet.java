@@ -77,13 +77,31 @@ public class ProductosServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String pathInfo = request.getPathInfo();
-        if (pathInfo == null || !pathInfo.replaceAll("/$", "").equals("/crear")) {
+        String normalizedPath = pathInfo == null ? "" : pathInfo.replaceAll("/+$", "");
+        if (!"/crear".equals(normalizedPath)) {
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
+        String nombre = request.getParameter("nombre");
+        if (nombre == null || nombre.isBlank()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "El nombre es obligatorio");
+            return;
+        }
+
         Producto producto = new Producto();
-        producto.setNombre(request.getParameter("nombre"));
+        producto.setNombre(nombre.trim());
+        String codigoFabricante = request.getParameter("codigoFabricantes");
+        if (codigoFabricante == null || codigoFabricante.isBlank()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Debe seleccionar un fabricante");
+            return;
+        }
+        try {
+            producto.setCodigoFabricante(Integer.parseInt(codigoFabricante));
+        } catch (NumberFormatException exception) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Fabricante no válido");
+            return;
+        }
         new ProductoDAOImpl().create(producto);
 
         response.sendRedirect(request.getContextPath() + "/tienda_informatica/producto");

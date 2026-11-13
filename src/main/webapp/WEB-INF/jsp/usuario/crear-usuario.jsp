@@ -1,16 +1,21 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: liber
-  Date: 09/11/2026
-  Time: 12:47
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<head><meta charset="UTF-8"><title>Crear usuario</title></head>
 <body>
-
+<h1>Crear usuario</h1>
+<form method="post" action="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear">
+    <label>Usuario <input name="usuario" required maxlength="45"></label><br>
+    <label>Contraseña <input type="password" name="password" required></label><br>
+    <label>Rol
+        <select name="rol" required>
+            <option value="cliente">cliente</option>
+            <option value="vendedor">vendedor</option>
+            <option value="administrador">administrador</option>
+        </select>
+    </label><br>
+    <button type="submit">Crear</button>
+</form>
+<a href="${pageContext.request.contextPath}/tienda_informatica/usuarios">Volver</a>
 </body>
 </html>

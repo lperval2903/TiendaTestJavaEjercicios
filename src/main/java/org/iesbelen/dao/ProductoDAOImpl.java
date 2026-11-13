@@ -21,36 +21,42 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
 
         Connection conn = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        ResultSet rsGenKeys = null;
-
         try {
             conn = connectDB();
+            ensureProductoTable(conn);
 
 
             //1 alternativas comentadas:
             //ps = conn.prepareStatement("INSERT INTO fabricantes (nombre) VALUES (?)", new String[] {"codigo"});
             //Ver también, AbstractDAOImpl.executeInsert ...
             //Columna fabricante.codigo es clave primaria auto_increment, por ese motivo se omite de la sentencia SQL INSERT siguiente.
-            ps = conn.prepareStatement("INSERT INTO producto (nombre) VALUES (?)", Statement.RETURN_GENERATED_KEYS);
-
-            int idx = 1;
-            ps.setString(idx++, producto.getNombre());
+            String sql;
+            if (producto.getCodigoFabricante() > 0) {
+                sql = "INSERT INTO producto (nombre, codigo_fabricante) VALUES (?, ?)";
+                ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, producto.getNombre());
+                ps.setInt(2, producto.getCodigoFabricante());
+            } else {
+                sql = "INSERT INTO producto (nombre) VALUES (?)";
+                ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, producto.getNombre());
+            }
 
             int rows = ps.executeUpdate();
             if (rows == 0)
                 System.out.println("INSERT de producto con 0 filas insertadas.");
 
-            rsGenKeys = ps.getGeneratedKeys();
-            if (rsGenKeys.next())
-                producto.setCodigo(rsGenKeys.getInt(1));
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next())
+                    producto.setCodigo(generatedKeys.getInt(1));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
-            closeDb(conn, ps, rs);
+            closeDb(conn, ps, null);
         }
 
     }
@@ -69,16 +75,17 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
 
         try {
             conn = connectDB();
+            ensureProductoTable(conn);
 
             // Se utiliza un objeto Statement dado que no hay parámetros en la consulta.
             s = conn.createStatement();
 
-            rs = s.executeQuery("SELECT * FROM producto");
+            rs = s.executeQuery("SELECT codigo, nombre FROM producto");
             while (rs.next()) {
                 Producto prod = new Producto();
                 int idx = 1;
                 prod.setCodigo(rs.getInt(idx++));
-                prod.setNombre(rs.getString(idx));
+                prod.setNombre(rs.getString(idx++));
                 listProd.add(prod);
             }
 
@@ -91,6 +98,19 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
         }
         return listProd;
 
+    }
+
+    private void ensureProductoTable(Connection conn) throws SQLException {
+        try (Statement statement = conn.createStatement()) {
+            statement.executeUpdate("""
+                    CREATE TABLE IF NOT EXISTS producto (
+                        codigo INT NOT NULL AUTO_INCREMENT,
+                        nombre VARCHAR(255) NOT NULL,
+                        codigo_fabricante INT NULL,
+                        PRIMARY KEY (codigo)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3
+                    """);
+        }
     }
 
     /**
@@ -106,7 +126,8 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
         try {
             conn = connectDB();
 
-            ps = conn.prepareStatement("SELECT * FROM producto WHERE codigo = ?");
+            ps = conn.prepareStatement(
+                    "SELECT codigo, nombre, codigo_fabricante FROM producto WHERE codigo = ?");
 
             int idx =  1;
             ps.setInt(idx, id);
@@ -117,7 +138,8 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
                 Producto prod = new Producto();
                 idx = 1;
                 prod.setCodigo(rs.getInt(idx++));
-                prod.setNombre(rs.getString(idx));
+                prod.setNombre(rs.getString(idx++));
+                prod.setCodigoFabricante(rs.getInt(idx));
 
                 return Optional.of(prod);
             }
@@ -210,7 +232,7 @@ public class ProductoDAOImpl extends AbstractDAOImpl implements ProductoDAO{
         try {
             conn = connectDB();
 
-            ps = conn.prepareStatement("SELECT COUNT(*) FROM fabricantes WHERE codigo_fabricante = ?");
+            ps = conn.prepareStatement("SELECT COUNT(*) FROM producto WHERE codigo_fabricante = ?");
             ps.setInt(1, id);
 
             rs = ps.executeQuery();

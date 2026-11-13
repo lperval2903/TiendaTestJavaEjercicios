@@ -19,6 +19,7 @@
          <h5 class="card-title">Gestion de Fabricantes</h5>
          <p class="card-text">Accede a la gestion de fabricantes para crear, editar y eliminar fabricantes.</p>
          <a href="${pageContext.request.contextPath}/tienda_informatica/fabricantes" class="btn btn-primary">Ir a Fabricantes</a>
+         <a href="${pageContext.request.contextPath}/tienda_informatica/fabricantes/crear" class="btn btn-secondary">Crear fabricante</a>
       </div>
    </div>
    <div class="card" style="width: 18rem; margin-left: 20px;">
@@ -26,6 +27,13 @@
          <h5 class="card-title">Gestion de Productos</h5>
          <p class="card-text">Accede a la gestion de productos para crear, editar y eliminar productos.</p>
          <a href="${pageContext.request.contextPath}/tienda_informatica/producto" class="btn btn-primary">Ir a Productos</a>
+         <a href="${pageContext.request.contextPath}/tienda_informatica/producto/crear" class="btn btn-secondary">Crear producto</a>
+      </div>
+      <div class="card" style="width: 18rem; margin-left: 20px;">
+         <div class="card-body">
+            <h5 class="card-title">Gestion de Usuarios</h5>
+            <a href="${pageContext.request.contextPath}/tienda_informatica/usuarios/crear" class="btn btn-primary">Crear usuario</a>
+         </div>
       </div>
    </div>
 </div>

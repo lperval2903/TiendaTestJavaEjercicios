@@ -1,0 +1,96 @@
+{
+  "info": {
+    "_postman_id": "4c3a9c5e-usuarios-crud",
+    "name": "Rutas /usuarios/*",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/tienda_informatica"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "GET /usuarios",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/usuarios"
+      }
+    },
+    {
+      "name": "GET /usuarios/{id}",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/usuarios/{{id}}"
+      }
+    },
+    {
+      "name": "GET /usuarios/crear",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/usuarios/crear"
+      }
+    },
+    {
+      "name": "GET /usuarios/editar/{id}",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/usuarios/editar/{{id}}"
+      }
+    },
+    {
+      "name": "POST /usuarios/crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "usuario", "value": "usuario-prueba", "type": "text" },
+            { "key": "password", "value": "cambio-me-123", "type": "text" },
+            { "key": "rol", "value": "cliente", "type": "text" }
+          ]
+        },
+        "url": "{{baseUrl}}/usuarios/crear"
+      }
+    },
+    {
+      "name": "POST /usuarios/editar/{id}",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "usuario", "value": "usuario-editado", "type": "text" },
+            { "key": "password", "value": "", "type": "text" },
+            { "key": "rol", "value": "vendedor", "type": "text" }
+          ]
+        },
+        "url": "{{baseUrl}}/usuarios/editar/{{id}}"
+      }
+    },
+    {
+      "name": "POST /usuarios/borrar/{id}",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/usuarios/borrar/{{id}}"
+      }
+    }
+  ]
+}

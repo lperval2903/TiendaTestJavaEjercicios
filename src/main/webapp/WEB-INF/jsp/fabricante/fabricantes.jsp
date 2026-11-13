@@ -21,7 +21,7 @@
 <jsp:include page="/WEB-INF/jsp/fragmentos/header.jsp" />
 <%
 	Usuario usuarioSesion = (Usuario) session.getAttribute("usuario");
-	boolean puedeGestionar = usuarioSesion == null || "administrador".equals(usuarioSesion.getRol());
+	boolean puedeGestionar = usuarioSesion != null && "administrador".equals(usuarioSesion.getRol());
 %>
 
 <div id="contenedora" style="float:none; margin: 0 auto;width: 900px;" >
